@@ -1,0 +1,7 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="New_Demo_Controller">
+    <!-- Private Attributes -->
+    <aura:attribute name="recordId" type="Id" />
+    <p>
+        <lightning:button label="New Demo" onclick="{!c.createDemo}"/>
+    </p>
+</aura:component>

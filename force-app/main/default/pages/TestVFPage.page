@@ -1,0 +1,38 @@
+<apex:page id="pgMain" standardController="Account" extensions="AccountFarmCropsPotentialControllerExt" sidebar="false">
+    <style>
+        <!-- hide the date link beside date input fields -->
+        .dateFormat{
+            display:none;
+        }
+        .floatingStyle 
+        { 
+            position:relative; 
+        } 
+    </style>
+    <apex:form >
+    <apex:pageMessages ></apex:pageMessages>
+        TESTING
+    <apex:pageblock id="MainTitle" mode="maindetail">
+    <apex:pageBlockSection >
+        <apex:pageBlockSectionItem rendered="{!planned == 'Plan = Yes'}">
+            <apex:outputLabel >{!planned}</apex:outputLabel>
+            <apex:commandButton style="padding-bottom : 0px;padding-top : 0px;" value="Stop Planning" action="{!stopPlanning}"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem rendered="{!planned == 'Plan = No'}">
+            <apex:outputLabel >{!planned}</apex:outputLabel>
+            <apex:commandButton style="padding-bottom : 0px;padding-top : 0px;" value="Start Planning" action="{!startPlanning}" rerender="reloadPanel"/>
+        </apex:pageBlockSectionItem>
+        <!-- this panel only exists to cause the Account page to reload so the user can see the newly created Plans -->
+        <apex:outputPanel id="reloadPanel" >
+            <apex:outputText rendered="{!shouldReload}">
+                <script type="text/javascript">
+                   
+                  sforce.one.navigateToURL('{!URLFOR('/' + accountId)}')
+                  
+                </script>
+            </apex:outputText>
+        </apex:outputPanel>
+    </apex:pageBlockSection>
+    </apex:pageblock> 
+    </apex:form> 
+</apex:page>

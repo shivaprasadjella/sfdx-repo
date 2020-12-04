@@ -1,0 +1,7 @@
+<apex:page Standardcontroller="Opportunity" lightningStylesheets="true">
+ 
+  
+ <!--<flow:interview name="Clone_or_Create_Opp" finishLocation="{!URLFOR('/home/home.jsp')}"/>-->
+ 
+ <flow:interview name="Clone_or_Create_Opp" finishLocation="{!URLFOR('/o/Contact/list?filterName=Recent')}"/>
+</apex:page>
